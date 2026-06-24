@@ -1,0 +1,22 @@
+.contact-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    height: 100%;
+}
+
+.contact-card:hover {
+    box-shadow: 0 8px 24px rgba(1, 118, 211, 0.15);
+    transform: translateY(-3px);
+}
+
+.contact-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0176d3;
+}
