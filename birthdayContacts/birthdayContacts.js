@@ -1,7 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { refreshApex } from '@salesforce/apex';
-import { openAgent, sendMessage } from 'lightning/accApi';
+import { open, execute } from 'lightning/accApi';
 import getTodayBirthdays from '@salesforce/apex/BirthdayContactController.getTodayBirthdays';
 
 const AGENT_ID = '0Xxg5000000wuxtCAA';
@@ -46,11 +45,11 @@ export default class BirthdayContacts extends LightningElement {
         const contactName = event.currentTarget.dataset.name;
 
         try {
-            await open('0Xxg5000000wuxtCAA');
+            await open(AGENT_ID);
             await execute('Generate a birthday wish for contactId: ' + contactId, '0Xxg5000000wuxtCAA');
 
             this.dispatchEvent(new ShowToastEvent({
-                title: '🎉 Agent Opened',
+                title: 'Agent Opened',
                 message: 'Generating birthday wish for ' + contactName,
                 variant: 'success'
             }));
